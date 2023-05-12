@@ -1,1 +1,1 @@
-Repositório para estudos e execuçao de exercicios
+Repositório para estudos e execuçao de exercicios de qualquer linguagem
