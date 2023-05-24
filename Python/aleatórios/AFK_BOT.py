@@ -1,8 +1,10 @@
 import pyautogui as pg
 import random
 import time
-while True:
+tempo=int(input("Por quanto tempo ficará fora? (em segundos)"))
+while tempo >0:
     x= random.randint(100,1200)
     y=random.randint(50,1000)
     pg.moveTo(x,y,0.4)
-    time.sleep(random.random()*3)
+    time.sleep(1)
+    tempo-=1
