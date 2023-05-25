@@ -1,1 +1,1 @@
-Repositório para estudos e execuçao de exercicios de qualquer linguagem
+Repositório para **estudos** e execuçao de exercicios de qualquer *linguagem de programação*.
