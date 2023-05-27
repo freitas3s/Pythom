@@ -14,14 +14,27 @@ pessoas = [
     'João', 'Joana', 'Luiz', 'Letícia',
 ]
 camisetas = [
-    ['preta', 'branca','verde','azul'],
-    ['pp','p', 'm', 'g','gg'],
-    ['masculino', 'feminino', 'unisex'],
-    ['algodão', 'poliéster']
+    ['preta', 'branca','verde','azul','amarela','vermelha','rosa','laranja','roxo','cinza',],
+    ['pp','p', 'm', 'g','gg','xg','xgg'],
+    ['masculino', 'feminino', 'unisex','lgbt'],
+    ['social','camiseta','regata','polo','jaqueta'],
+    ['algodão', 'poliéster','elastano','drifit',],
+    ['calvin','reserva','tommy','lacoste','gucci','armani','renner','riachuelo','cea','zara','polo']
 ]
-print_iter(product(*camisetas))
+#print_iter(product(*camisetas))
 lista_camisetas= [
     camiseta for camiseta in product(*camisetas)
                   ]
+print(len(lista_camisetas))
+#procurando um item usando um loop for:
+contagem=0
+for i in lista_camisetas:
+    if i == lista_camisetas.index(('roxo','xgg','unisex','jaqueta','drifit','zara')):
+        break
+    contagem+=1
+print(contagem)
+#leva quase 2 min e nao achou o indice correto
 
-print(pesquisa(lista_camisetas,('preta','p','masculino','algodão')))
+#usando a pesquisa binaria o tempo cai exponencialmente
+print(pesquisa(lista_camisetas,('roxo','xgg','unisex','jaqueta','drifit','zara')))
+#leva menos de 3 segundos
