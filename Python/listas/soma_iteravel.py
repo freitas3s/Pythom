@@ -2,18 +2,18 @@ def soma(a,b):
     lista1=[]
     lista2=[]
     resultado=[]
-    for i in str(a) :
-        lista1.append(i)
-    lista1.reverse()
+    def criar_lista(x,lista):
+        for i in str(x):
+            lista.append(i)
+        lista.reverse() 
+
+    criar_lista(a,lista1)
 
     while len(lista2)<len(lista1):
         lista2.append(str(0))
 
-    for i in str(b):
-        lista2.append(i)
-    lista2.reverse()
-
-
+    criar_lista(b,lista2)
+    
     resto=0
     for i in range(len(lista1)):
         soma=int(lista1[i])+int(lista2[i])+int(resto)
