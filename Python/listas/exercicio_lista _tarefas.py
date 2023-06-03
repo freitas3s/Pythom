@@ -1,4 +1,5 @@
-
+import json 
+import os
 def adicionar_item(item):
     to_do.append(item)
     listar(to_do)
@@ -27,13 +28,31 @@ def refazer(todo,itens_removidos):
         itens_removidos.pop()
         listar(todo)
 
+def ler_json(to_do,path):
+    dados=[]
+    try:
+        with open(path,"r",encoding='utf8') as arquivo:
+            dados=json.load(arquivo)
+    except FileNotFoundError:
+        print("arquivo nao existe")
+        salvar_em_json(to_do,path)
+    return dados
 
-to_do= []
+def salvar_em_json(to_do,path):
+    with open(path,"w",encoding="utf8") as arquivo:
+        dados= json.dump(to_do,arquivo,indent=2,ensure_ascii=False)
+    return dados
+
+
+
+
+PATH= "exercicio_lista _tarefas.json"
+to_do= ler_json([],PATH)
 itens_removidos=[]
 while True:
     comandos=["listar", "desfazer" ,  "refazer"]
     print("Comandos: listar, desfazer e refazer")
-    comando=input("digite um comando ou uma tarefa: ") 
+    comando=input("digite um comando ou uma tarefa: ")
     if comando == comandos[0]:
         listar(to_do)
     if comando == comandos[1]:
@@ -42,3 +61,5 @@ while True:
         refazer(to_do, itens_removidos)
     if comando not in comandos:
         adicionar_item(comando)
+    
+    salvar_em_json(to_do,PATH)
