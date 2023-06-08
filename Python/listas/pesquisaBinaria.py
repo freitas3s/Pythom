@@ -6,14 +6,20 @@ def pesquisa(lista,item):
     while baixo<=alto:
         print(f'tempo {contagem}')
         meio=(baixo+alto)//2
-        chute= lista.index(lista[meio])
+        chute= meio
         if chute<lista.index(item):
             baixo=meio+1
-
         if chute>lista.index(item):
             alto=meio-1
-
         if chute==lista.index(item):
             return meio
         contagem+=1
     return None
+
+#lista=[numero for numero in range(1000000000)]
+
+
+
+
+
+#print(pesquisa(lista,960468400))
